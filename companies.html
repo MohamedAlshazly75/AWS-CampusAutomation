@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Companies - Smart Campus Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="icon" type="image/png" href="icon.png" />
+</head>
+<body>
+  <header class="banner companies-banner">
+    <h1>Companies Portal</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="companies.html" class="active">Companies</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="container">
+      <h2>Company Registration</h2>
+
+      <form id="companyForm">
+        <input type="hidden" name="type" value="company" />
+        <label for="cname">Company Name</label>
+        <input id="cname" name="companyName" type="text" required />
+
+        <label for="cemail">Contact Email</label>
+        <input id="cemail" name="email" type="email" required />
+
+        <label for="type">Opportunity Type</label>
+        <select id="type" name="jobType" required>
+          <option value="Job Offer">Job Offer</option>
+          <option value="Internship">Internship</option>
+        </select>
+
+        <button type="submit" class="btn">Register</button>
+      </form>
+
+      <div id="cmessage" class="msg" aria-live="polite"></div>
+    </section>
+  </main>
+
+<script>
+  const API_BASE = "https://sshprmfvyl.execute-api.us-west-1.amazonaws.com/dev"; 
+
+  document.getElementById('companyForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch(API_BASE, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+
+      const json = await res.json();
+      document.getElementById('cmessage').textContent = json.message || JSON.stringify(json);
+      form.reset(); 
+    } catch (err) {
+      document.getElementById('cmessage').textContent = 'Error: ' + err.message;
+    }
+  });
+</script>
+</body>
+</html>

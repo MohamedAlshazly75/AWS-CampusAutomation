@@ -1,0 +1,101 @@
+:root{
+  --primary:#004080;
+  --accent:#0066cc;
+  --bg:#f7f9fc;
+  --card:#ffffff;
+  --muted:#6b7280;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:#1f2937;
+  -webkit-font-smoothing:antialiased;
+}
+
+nav{
+  background:var(--primary);
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  align-items:center;
+  padding:12px 0;
+  margin:0;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:6px;
+  font-weight:600;
+}
+nav a:hover{background:var(--accent)}
+nav a.active{background:var(--accent)}
+
+.banner{
+  height:300px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-shadow:0 6px 18px rgba(0,0,0,0.45);
+  font-size:2.2rem;
+  font-weight:700;
+}
+
+.home-banner{
+  background:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b') center/cover no-repeat;
+}
+.students-banner{
+  background:url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b') center/cover no-repeat;
+}
+.companies-banner{
+  background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat;
+}
+
+.container{
+  max-width:920px;
+  margin:28px auto;
+  padding:0 18px;
+}
+
+h2{margin-top:0;color:#0f172a}
+p{color:var(--muted)}
+
+.btn{
+  display:inline-block;
+  background:var(--primary);
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+  border:0;
+  cursor:pointer;
+}
+.btn:hover{background:var(--accent)}
+
+form{
+  max-width:520px;
+  margin:18px auto;
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  text-align:left;
+}
+
+form label{display:block;margin:12px 0 6px;font-weight:600}
+form input, form select{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #d1d5db;
+  font-size:1rem;
+}
+.msg{margin-top:12px;color:var(--muted);font-style:italic}
