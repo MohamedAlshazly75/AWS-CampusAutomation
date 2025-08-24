@@ -69,7 +69,7 @@ The system leverages **AWS Cloud Services** to ensure scalability, security, and
 │── cloudfront/            # CloudFront distribution settings
 │── README.md              # Project documentation
 ```
-
+📺 *YouTube Video:* 👉 \[https://youtu.be/fhZlPf-yb_E]
 ---
 
 ## 🔐 Security Implementation  
